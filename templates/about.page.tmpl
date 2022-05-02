@@ -1,0 +1,18 @@
+{{template "base" .}}
+
+{{define "content"}}
+
+<div class="container">
+    <div><h1>This is about page</h1>
+    <p>with some paragraph
+        , data came from template: {{ index .StringMap "author" }}
+        {{ if ne (index .StringMap "remote_ip") "" }}
+            <p>and the ip is: {{ index .StringMap "remote_ip" }}</p>
+            <p>and you can still <a href="/">hit this link</a> to go to main paige...</p>
+        {{ else }}
+            <p>you dont have IP assigned in session, please <a href="/">hit this link</a> to obtaine one</p>
+        {{ end }}
+    </p></div>  
+</div>
+
+{{end}}
